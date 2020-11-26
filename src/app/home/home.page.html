@@ -7,14 +7,34 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <h1> Ejemplo de Interpolacion  </h1>
+  <p> <b> Nombre: </b> {{nombre}} </p>
+  <p> <b> Sueldo: </b> {{sueldo}} </p>
+  <img (click)="click()" [src]="imagen_logo1" />
+  <img src="{{imagen_logo2}}" />
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+  <ion-item>
+    <ion-label position="floating">CI</ion-label>
+    <ion-input [(ngModel)]="cedula"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input  [(ngModel)]="nombre" ></ion-input>
+  </ion-item>
+
+  <div *ngIf="verMensaje==true"  class="colorrojo"  > Error en el ingreso de datos </div>
+
+  <ion-button (click)="click()"  color="primary">Validar</ion-button>
+
+  <h1> Lista de nombres </h1>
+  <ion-item *ngFor="let n1 of lista" >
+     {{n1.nombre | uppercase }}
+     <ion-icon  (click)="modificar(n1.codigo)"  slot="end" name="create-outline"></ion-icon>
+     <ion-icon slot="end"   name="trash-outline"></ion-icon>
+  </ion-item>
+
+  <ion-button  *ngFor="let n of lista"  color="primary">{{n.nombre}}</ion-button>
+
 </ion-content>

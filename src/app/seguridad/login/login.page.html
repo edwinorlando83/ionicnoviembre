@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+     
+      <ion-card-title>Ingrese sus datos</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <form [formGroup]="loginForm">
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input formControlName="usuario" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" >Password</ion-label>
+        <ion-input  formControlName="password" type="password" ></ion-input>
+      </ion-item>
+    </form>
+        <ion-button  (click)="login()"   expand="block"  [disabled]="!loginForm.valid"    >Ingresar</ion-button>
+      
+    
+  
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer  >
+  <ion-toolbar>
+       <p class="piedepagina"> App Desarrollado por Orlando </p>
+  </ion-toolbar>
+</ion-footer>
+

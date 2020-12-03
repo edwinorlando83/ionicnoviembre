@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'cambiarpass',
     loadChildren: () => import('./seguridad/cambiarpass/cambiarpass.module').then( m => m.CambiarpassPageModule)
   },
+  {
+    path: 'principal/:nombre',
+    loadChildren: () => import('./principal/principal.module').then( m => m.PrincipalPageModule)
+  },
 ];
 
 @NgModule({

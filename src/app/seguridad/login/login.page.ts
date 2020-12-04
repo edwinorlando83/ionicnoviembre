@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
           //  sin Parametros
           // this.router.navigateByUrl('principal');
 
-          this.router.navigateByUrl('principal/' + success.usu_nombres  );
+            this.router.navigateByUrl('tabs' );
 
           }
         },

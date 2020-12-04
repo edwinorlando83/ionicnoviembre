@@ -1,0 +1,31 @@
+ 
+<ion-content> 
+  <ion-tabs mode="ios">
+    <ion-tab-bar slot="top">
+
+      <ion-tab-button tab="roles">
+        <ion-icon name="person-circle"></ion-icon>
+        <ion-label>Lista de Roles</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="usuarios">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Lista de Usuarios</ion-label>
+        <ion-badge>{{contador_usuarios}}</ion-badge>
+      </ion-tab-button>
+   
+      <ion-tab-button tab="acercade">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label>Acerca de </ion-label>
+      </ion-tab-button>
+
+
+      <ion-tab-button tab="config">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label> Configuración </ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+
+</ion-content>

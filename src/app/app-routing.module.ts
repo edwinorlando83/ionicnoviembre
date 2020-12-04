@@ -27,6 +27,30 @@ const routes: Routes = [
     path: 'principal/:nombre',
     loadChildren: () => import('./principal/principal.module').then( m => m.PrincipalPageModule)
   },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
+    path: 'roles',
+    loadChildren: () => import('./seguridad/roles/roles.module').then( m => m.RolesPageModule)
+  },
+  {
+    path: 'lista-usuarios',
+    loadChildren: () => import('./seguridad/lista-usuarios/lista-usuarios.module').then( m => m.ListaUsuariosPageModule)
+  },
+  {
+    path: 'editarusuario/:correo',
+    loadChildren: () => import('./editarusuario/editarusuario.module').then( m => m.EditarusuarioPageModule)
+  },
+  {
+    path: 'configuracion',
+    loadChildren: () => import('./configuracion/configuracion.module').then( m => m.ConfiguracionPageModule)
+  },
+  {
+    path: 'agregarusuario',
+    loadChildren: () => import('./seguridad/agregarusuario/agregarusuario.module').then( m => m.AgregarusuarioPageModule)
+  },
 ];
 
 @NgModule({

@@ -29,7 +29,7 @@ export class ConeccionphpService {
     let urlServer = this.URL + "usuarios.php";
     let body = new HttpParams();
     body = body.set("op", "getusuario");
-    body = body.set("usu_correo", usu_correo);  
+    body = body.set("correo", usu_correo);  
     return this.http.post(urlServer, body, { responseType: "json" });
   }
 

@@ -66,13 +66,10 @@ export class EditarusuarioPage implements OnInit {
   obtenerUsuario() { 
     this.correo = this.activatedroute.snapshot.paramMap.get("correo");
 
-
     this.cnx.obtenerdatosdelUsuario(this.correo).subscribe(
-      (data: any) => {
-        console.log(data);
+      (data: any) => { 
 
-        let usuario = data.mensaje;
- 
+        let usuario = data.mensaje; 
         this.objForm.patchValue({
           usu_correo: usuario.usu_correo,
           usu_nombres: usuario.usu_nombres,
@@ -80,8 +77,7 @@ export class EditarusuarioPage implements OnInit {
           rusu_password: usuario.usu_password,
           rol_codigo: usuario.rol_codigo.toString(),
         });
-
-    
+        
 
       },
       (error) => {}

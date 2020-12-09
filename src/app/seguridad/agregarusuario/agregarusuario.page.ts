@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController, NavController } from '@ionic/angular';
 import { ConeccionphpService } from 'src/app/coneccionphp.service';
 import { MustMatch } from 'src/app/Utils';
 
@@ -16,10 +16,10 @@ export class AgregarusuarioPage implements OnInit {
   lstRol;
   constructor(
     private formBuilder: FormBuilder,
-   
+    private modalCtrl: ModalController,
     public alertController: AlertController,
     private cnx: ConeccionphpService,
- 
+    private navCtrl: NavController,
     private router: Router
   ) {
 
@@ -62,15 +62,19 @@ export class AgregarusuarioPage implements OnInit {
     let  rol_codigo  = this.objForm.value.rol_codigo ;
     this.cnx.insertarUsuario(this.objForm.value.usu_correo, usu_nombres ,usu_password,  rol_codigo ).subscribe(
      ( resultado:any) =>{  
-     
-     this.router.navigateByUrl('tabs/usuarios');
-      
+       
+    //  this.router.navigateByUrl('tabs/usuarios');
+   this.close();
       },
      error=>{ console.log(error) }
 
     );
   }
 
- 
+  close(){
+    this.modalCtrl.dismiss({
+      dismissed: true
+    });
+  }
 
 }

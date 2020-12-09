@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+ 
 import { ConeccionphpService } from 'src/app/coneccionphp.service';
+import { AgregarusuarioPage } from '../agregarusuario/agregarusuario.page';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -13,12 +15,13 @@ export class ListaUsuariosPage implements OnInit {
   constructor(
     private cnx: ConeccionphpService,
     public alertController: AlertController,
-    private router:Router
+    private router:Router,
+    public modalController: ModalController
   ) {}
 
   lstUsuarios;
   ngOnInit() {
-  
+    this.listaDeUsuarios();
   }
 
   ionViewDidEnter(){
@@ -29,6 +32,7 @@ export class ListaUsuariosPage implements OnInit {
 
     this.cnx.listaUsuarios().subscribe(
       (datos: any) => {
+      
         this.lstUsuarios = datos;
       },
       (error) => {
@@ -77,6 +81,17 @@ export class ListaUsuariosPage implements OnInit {
     this.router.navigateByUrl('editarimagen/'+correo);
   }
   agregarusuario(){
-    this.router.navigateByUrl('agregarusuario');
+   // this.router.navigateByUrl('agregarusuario');
+    this.presentModal();
   }
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: AgregarusuarioPage   
+    });
+    modal.onDidDismiss( ).then(eve=>{
+      this.listaDeUsuarios();
+    });
+    return await modal.present();
+  }
+
 }

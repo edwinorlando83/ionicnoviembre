@@ -25,8 +25,8 @@ export class LoginPage implements OnInit {
     private router:Router
   ) {
     this.loginForm = formBuilder.group({
-      usuario: ["mi@correo.com", Validators.required],
-      password: ["admin", Validators.required],
+      usuario: ["demo1@demo.com", Validators.required],
+      password: ["123", Validators.required],
     });
   }
 

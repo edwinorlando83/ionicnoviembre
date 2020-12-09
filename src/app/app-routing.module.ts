@@ -51,6 +51,10 @@ const routes: Routes = [
     path: 'agregarusuario',
     loadChildren: () => import('./seguridad/agregarusuario/agregarusuario.module').then( m => m.AgregarusuarioPageModule)
   },
+  {
+    path: 'editarimagen',
+    loadChildren: () => import('./seguridad/editarimagen/editarimagen.module').then( m => m.EditarimagenPageModule)
+  },
 ];
 
 @NgModule({
